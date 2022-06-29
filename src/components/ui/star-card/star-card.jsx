@@ -1,0 +1,25 @@
+import React from "react";
+import Title, { TitleSize, TitleLevel } from "/src/components/ui/title/title";
+import { StyledStarCard, Figure, Image, StyledStarIcon, Text } from "./styles";
+
+function StarCard({
+  name, // имя кота
+  about, // информация о коте
+  feature, // особенность (ласковый, новенький и т.д.) CatFeature
+  image // url c фото кота
+}) {
+  return (
+    <StyledStarCard>
+      <Figure>
+        <Image src={image} width={313} height={320} alt="изображение кота" />
+        <StyledStarIcon className="star-card__icon" feature={feature} />
+      </Figure>
+      <Title size={TitleSize.SMALL} title={TitleLevel.H3}>
+        {name}
+      </Title>
+      <Text dangerouslySetInnerHTML={{ __html: about }} />
+    </StyledStarCard>
+  );
+}
+
+export default StarCard;
